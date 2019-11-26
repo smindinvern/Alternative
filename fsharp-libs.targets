@@ -1,0 +1,46 @@
+<Project xlmns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Default to deterministic builds -->
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <!-- Enable optimizations IFF building the release configuration -->
+  <Choose>
+    <When Condition=" '$(Configuration)' == 'Release' ">
+      <PropertyGroup>
+        <Optimize>true</Optimize>
+	<Tailcalls>true</Tailcalls>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <Optimize>false</Optimize>
+	<Tailcalls>false</Tailcalls>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
+  <!-- NuGet metadata properties -->
+  <PropertyGroup>
+    <!--
+      Default metadata property values.
+      Taken from <https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties>.
+
+      <IsPackable>true</IsPackable>
+      <PackageVersion>$(Version)</PackageVersion>
+      <PackageId>$(AssemblyName)</PackageId>
+      <Title>$(PackageId)</Title>
+      <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+      <PackageOutputPath>$(OutputPath)</PackageOutputPath>
+      <SymbolsPackageFormat>symbols.nupkg</SymbolsPackageFormat>
+      <RepositoryType>git</RepositoryType>
+      <IncludeContentInPack>true</IncludeContentInPack>
+      <ContentTargetFolders>content;contentFiles</ContentTargetFolders>
+    -->
+    <SymbolsPackageFormat>snupkg</SymbolsPackageFormat>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+  </PropertyGroup>
+
+</Project>
