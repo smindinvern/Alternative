@@ -92,12 +92,8 @@ module Alternative =
             bind (inject << f) c
 
         /// <summary>
-        /// Function composition lifted into the Alternative monad.
-        ///
-        /// Just as with normal function composition, (<*>) is associative, i.e.
-        /// f <*> (g <*> h) = (f <*> g) <*> h
+        /// Sequential application of an Alternative.
         /// </summary>
-
         let inline (<*>) (f: Alternative<'u, 'e, 'a -> 'b>) (c: Alternative<'u, 'e, 'a>) : Alternative<'u, 'e, 'b> =
             bind (fun f' -> f' <@> c) f
         
