@@ -27,7 +27,7 @@
 
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="4.3.4" />
-    <PackageReference Include="smindinvern.State" Version="[1.0.1,2.0)" />
+    <PackageReference Include="smindinvern.State" Version="1.1.1" />
     <PackageReference Include="smindinvern.Utils" Version="1.0.1" />
   </ItemGroup>
 
