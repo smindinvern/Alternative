@@ -42,6 +42,11 @@ module Alternative =
         }
 
     /// <summary>
+    /// Right-associative version of <see cref="(<|>)" />.
+    /// </summary>
+    let inline ( ^|^ ) f g = f (<|>) g
+    
+    /// <summary>
     /// Encapsulate a Result value within an Alternative.  The resulting
     /// Alternative will either produce a value, or an error, according to
     /// the value of the given Result.
